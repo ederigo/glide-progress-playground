@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/reloadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Reload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checksFlow" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/checksFlow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:constraint_referenced_ids="preview,thumbnail,isBreakPreview,isBreakThumbnail,isIgnoreDiskPreview,isIgnoreDiskThumbnail,isIgnoreMemoryPreview,isIgnoreMemoryThumbnail"
+        app:flow_horizontalGap="32dp"
+        app:flow_maxElementsWrap="2"
+        app:flow_wrapMode="aligned"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/preview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Preview" />
+
+    <TextView
+        android:id="@+id/thumbnail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Thumbnail" />
+
+    <CheckBox
+        android:id="@+id/isBreakPreview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Broken URL" />
+
+    <CheckBox
+        android:id="@+id/isBreakThumbnail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Broken URL" />
+
+    <CheckBox
+        android:id="@+id/isIgnoreDiskPreview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Ignore disk cache" />
+
+    <CheckBox
+        android:id="@+id/isIgnoreDiskThumbnail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Ignore disk cache" />
+
+    <CheckBox
+        android:id="@+id/isIgnoreMemoryPreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ignore memory cache" />
+
+    <CheckBox
+        android:id="@+id/isIgnoreMemoryThumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ignore memory cache" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reloadButton"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/statusFlow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:constraint_referenced_ids="progress,status"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="@color/colorAccent"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="5"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:text="Connecting"
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
